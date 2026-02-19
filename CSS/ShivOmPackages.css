@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* main-font-size 40px  */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+:root {
+    --primary-color: #00751d;
+    --secondary-color: #003d0f;
+    --third-color: #F8893F;
+    --hover-color: #13b613;
+}
+
+.shiv-packages-main-con {
+    position: relative;
+}
+
+.shiv-packages-img-main-con {
+    height: 500px;
+    width: 100%;
+}
+
+.shiv-packages-img-con {
+    height: 100%;
+    width: 100%;
+}
+
+.shiv-packages-img-con img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.shiv-packages-content-card-con {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 2;
+}
+
+.shiv-packages-content-con {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.shiv-packages-top-sub-head {
+    color: white;
+    font-weight: 500;
+}
+
+.shiv-packages-heading {
+    font-size: 40px;
+    color: white;
+}
+
+.shiv-packages-below-sub-head {
+    color: white;
+}
+
+.shiv-packages-cards-con {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 35px;
+}
+
+.shiv-packages-card,
+.shiv-packages-cardd {
+    width: 300px;
+    background-color: #e8fff4; 
+    padding: 1.8rem 0.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
+}
+
+.shiv-packages-card {
+    height: 430px;
+}
+
+.shiv-packages-cardd {
+    height: 467px;
+}
+
+.shiv-packages-card:hover,
+.shiv-packages-cardd:hover {
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.35);
+    transform: translateY(-15px);
+    animation: floatingPackages 3s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes floatingPackages {
+    0% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(-22px);
+    }
+
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+.shiv-package-card-heading {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.shiv-package-card-price-head span {
+    font-size: 40px;
+    color: rgba(204, 41, 0, 0.897);
+}
+
+.shiv-package-card-price-head {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.shiv-package-card-sub-head {
+    color: var(--secondary-color);
+    position: relative;
+    margin-bottom: 1.1rem;
+}
+
+.shiv-package-card-sub-head::before {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    height: 1px;
+    background-color: #003d0f38;
+}
+
+.shiv-package-card-list {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    transform: translateX(20%);
+    font-size: 15px;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.shiv-package-card-list li {
+    line-height: 2.2rem;
+}
+
+.shiv-packages-card-btn {
+    padding: 0.8rem 4.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    transform-origin: bottom;
+}
+
+.shiv-packages-card-btn:hover {
+    background-color: #00751d;
+}
+
+/* RESPONSIVE STYLES */
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .shiv-packages-cards-con {
+        gap: 20px;
+        padding: 0 1rem;
+    }
+    
+    .shiv-packages-card,
+    .shiv-packages-cardd {
+        width: 280px;
+    }
+    
+    .shiv-package-card-heading {
+        font-size: 25px;
+    }
+
+    .shiv-packages-card-btn {
+        width: 90%;
+    }
+}
+
+/* Mobile (768px and below) */
+@media screen and (max-width: 768px) {
+    .shiv-packages-img-main-con {
+        display: none;
+    }
+    
+    .shiv-packages-content-card-con {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        background-color: #00751d;
+        padding: 40px 20px;
+        margin-top: 0;
+    }
+    
+    .shiv-packages-cards-con {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .shiv-packages-card,
+    .shiv-packages-cardd {
+        width: 90%;
+        max-width: 400px;
+        margin-bottom: 0;
+    }
+    
+    .shiv-packages-heading {
+        font-size: 32px;
+    }
+    
+    .shiv-packages-below-sub-head br {
+        display: none;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+    .shiv-packages-content-card-con {
+        padding: 30px 15px;
+    }
+    
+    .shiv-packages-heading {
+        font-size: 28px;
+    }
+    
+    .shiv-packages-below-sub-head {
+        font-size: 15px;
+    }
+    
+    .shiv-packages-card,
+    .shiv-packages-cardd {
+        width: 95%;
+    }
+
+    .shiv-package-card-list {
+        width: 240px;
+    }
+
+    .shiv-package-card-list li {
+        width: 200px;
+    }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShivOm Topbar</title>
+
+    <link rel="stylesheet" href="../CSS/ShivOmNavbar.css">
+
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="shiv-topbar-main-con">
+        <div class="shiv-topbar-logo-con">
+            <div class="shiv-logo-img-con">
+                <img src="" alt="Logo">
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="shiv-topbar-menu-con" id="topbarMenu">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Insurance</a></li>
+                <li><a href="">Blog</a></li>
+            </ul>
+            <button class="mobile-button">LET'S TALK</button>
+        </div>
+
+        <div class="shiv-topbar-button-con">
+            <button>LET'S TALK</button>
+        </div>
+
+        <!-- Overlay for mobile menu -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
+
+    <script>
+            const menuToggle = document.getElementById('menuToggle');
+        const topbarMenu = document.getElementById('topbarMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            topbarMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            if (topbarMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            topbarMenu.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        const menuLinks = document.querySelectorAll('.shiv-topbar-menu-con a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                topbarMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                menuToggle.classList.remove('active');
+                topbarMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+
+</html>

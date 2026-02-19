@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client Testimonials | ShivOm Insurance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #fafafa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        :root {
+            --primary-color: #00751d;
+            --secondary-color: #003d0f;
+            --third-color: #F8893F;
+            --hover-color: #13b613;
+        }
+
+        .testimonial-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 117, 29, 0.1);
+            color: #00751d;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--secondary-color);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .swiper-container {
+            position: relative;
+            padding: 20px 0 60px;
+        }
+
+        .swiper-wrapper {
+            align-items: stretch;
+        }
+
+        .swiper-slide {
+            height: auto;
+            display: flex;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 30px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        .icon-badge {
+            width: 60px;
+            height: 60px;
+            background: #f0f9f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00751d;
+            border: 2px solid #e0f0e3;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .quote-mark {
+            font-size: 30px;
+            color: #00751d;
+            opacity: 0.15;
+            margin-bottom: 15px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+            font-style: normal;
+            flex: 1;
+            overflow: visible;
+            min-height: 80px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            flex-shrink: 0;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            background: #f0f9f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #00751d;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .client-details h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #003d0f;
+            margin-bottom: 4px;
+        }
+
+        .client-details p {
+            font-size: 13px;
+            color: #00751d;
+            font-weight: 500;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .star-rating i {
+            color: #ffc107;
+            font-size: 14px;
+        }
+
+        .swiper-pagination {
+            position: relative !important;
+            margin-top: 30px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #00751d;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .testimonial-card:hover {
+            border-color: #00751d;
+            box-shadow: 0 10px 25px rgba(0, 117, 29, 0.1);
+        }
+
+        .testimonial-card:hover .icon-badge {
+            background: #00751d;
+            color: white;
+        }
+
+        @media (max-width: 1200px) {
+            .testimonial-card {
+                padding: 30px 25px;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+
+            .icon-badge {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-text {
+                font-size: 15px;
+                line-height: 1.6;
+                min-height: 70px;
+            }
+
+            .quote-mark {
+                font-size: 26px;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .client-info {
+                flex-direction: row;
+                text-align: left;
+                gap: 12px;
+            }
+
+            .client-details h4 {
+                font-size: 16px;
+            }
+
+            .testimonial-text {
+                font-size: 14px;
+                line-height: 1.5;
+                min-height: 65px;
+            }
+
+            .star-rating {
+                margin-bottom: 12px;
+            }
+
+            .star-rating i {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .testimonial-text {
+                font-size: 13.5px;
+                line-height: 1.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="testimonial-container">
+        <div class="section-header">
+            <div class="section-tag">Testimonials</div>
+            <h1 class="section-title">Trusted by Thousands</h1>
+            <p class="section-subtitle">See what our satisfied clients have to say about their experience with ShivOm
+                Insurance</p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Testimonial 1 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="quote-mark">"</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The health insurance claim process was incredibly smooth. During my hospitalization,
+                            the support team handled everything efficiently. Highly recommended!"
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">RM</div>
+                            <div class="client-details">
+                                <h4>Rahul Mehta</h4>
+                                <p>Health Insurance Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="quote-mark">"</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Choosing ShivOm for life insurance was the best decision for my family's security.
+                            Transparent policies and excellent service."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">PP</div>
+                            <div class="client-details">
+                                <h4>Pooja Patel</h4>
+                                <p>Life Insurance Policy Holder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="quote-mark">"</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "After my car accident, I was worried about the claim process. But ShivOm made it
+                            effortless with cashless repair and quick processing."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">AS</div>
+                            <div class="client-details">
+                                <h4>Amit Shah</h4>
+                                <p>Motor Insurance Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="quote-mark">"</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Our home insurance protected us during recent floods. Fair assessment, prompt settlement,
+                            and professional handling throughout."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">ND</div>
+                            <div class="client-details">
+                                <h4>Neha Desai</h4>
+                                <p>Home Insurance Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="icon-badge">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="quote-mark">"</div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "ShivOm provided tailored business insurance that protects my assets and liability
+                            perfectly.
+                            Excellent coverage for entrepreneurs."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">SK</div>
+                            <div class="client-details">
+                                <h4>Suresh Kumar</h4>
+                                <p>Business Insurance Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 25,
+            loop: true,
+            speed: 600,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 25,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                },
+            },
+            on: {
+                init: function () {
+                    setTimeout(() => {
+                        this.updateAutoHeight();
+                    }, 100);
+                }
+            }
+        });
+
+        // Hover effects
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.borderColor = '#00751d';
+                this.style.boxShadow = '0 10px 25px rgba(0, 117, 29, 0.1)';
+                this.querySelector('.icon-badge').style.background = '#00751d';
+                this.querySelector('.icon-badge').style.color = 'white';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.borderColor = '#e8e8e8';
+                this.style.boxShadow = 'none';
+                this.querySelector('.icon-badge').style.background = '#f0f9f2';
+                this.querySelector('.icon-badge').style.color = '#00751d';
+            });
+        });
+    </script>
+</body>
+
+</html>

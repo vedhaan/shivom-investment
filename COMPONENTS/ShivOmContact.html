@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShivOm-Contact</title>
+
+    <link rel="stylesheet" href="../CSS/ShivOmContact.css">
+</head>
+
+<body>
+    <div class="shiv-contact-main-con">
+        <!-- Form Section -->
+        <div class="shiv-contact-form-con">
+            <p class="shiv-contact-sub-head">CONTACT US</p>
+
+            <h1 class="shiv-contact-heading">Get in Touch with Us</h1>
+
+            <div class="shiv-contact-form-data-con">
+                <form onsubmit="ShivOmHandleSubmit(event)">
+                    <!-- Inner Part (2-column) -->
+                    <div class="shiv-contact-form-inner-part">
+                        <div class="shiv-input-group">
+                            <input type="text" required>
+                            <label>Full Name</label>
+                        </div>
+
+                        <div class="shiv-input-group">
+                            <input type="text" required>
+                            <label>Phone Number</label>
+                        </div>
+
+                        <div class="shiv-input-group">
+                            <input type="email" required>
+                            <label>Email Address</label>
+                        </div>
+
+                        <div class="shiv-input-group">
+                            <input type="text" required>
+                            <label>Insurance Type</label>
+                        </div>
+                    </div>
+
+                    <!-- Outer Part (1-column, textarea + button) -->
+                    <div class="shiv-contact-form-outer-part">
+                        <div class="shiv-input-group">
+                            <textarea required></textarea>
+                            <label>Add Location</label>
+                        </div>
+
+                        <button type="submit">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="shiv-contact-img-con">
+            <img src="../IMAGES/ShivOmFormImage.jpg" alt="contact image">
+        </div>
+    </div>
+
+    <!-- JS for Form Submission -->
+    <script>
+        const ShivOmHandleSubmit = (e) => {
+            e.preventDefault();
+            alert("Form submitted successfully!");
+        }
+    </script>
+</body>
+
+</html>
